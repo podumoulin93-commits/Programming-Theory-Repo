@@ -7,10 +7,21 @@ public class Shape : MonoBehaviour
     public string ShapeName
     {
         get { return shapeName; }
-        protected set { shapeName = value; }
+
+        protected set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                shapeName = "Unnamed Shape";
+            }
+            else
+            {
+                shapeName = value;
+            }
+        }
     }
 
-    private void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         DisplayInfo();
         PerformAction();

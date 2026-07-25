@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SphereShape : Shape
 {
+    [SerializeField] private float growthAmount = 0.2f;
+
     private void Start()
     {
         ShapeName = "Sphere";
@@ -9,12 +11,17 @@ public class SphereShape : Shape
 
     public override void DisplayInfo()
     {
-        Debug.Log("You clicked the Sphere.");
+        Debug.Log("You clicked the " + ShapeName + ".");
     }
 
     public override void PerformAction()
     {
-        transform.localScale += Vector3.one * 0.2f;
-        Debug.Log("The Sphere grows.");
+        Grow();
+        Debug.Log("The " + ShapeName + " grows.");
+    }
+
+    private void Grow()
+    {
+        transform.localScale += Vector3.one * growthAmount;
     }
 }

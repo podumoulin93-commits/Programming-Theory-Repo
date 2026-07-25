@@ -9,12 +9,12 @@ public class CubeShape : Shape
 
     public override void DisplayInfo()
     {
-        Debug.Log("You clicked the Cube.");
+        Debug.Log("You clicked the " + ShapeName + ".");
     }
 
     public override void PerformAction()
     {
         transform.Rotate(0f, 45f, 0f);
-        Debug.Log("The Cube rotates.");
+        Debug.Log("The " + ShapeName + " rotates.");
     }
 }
