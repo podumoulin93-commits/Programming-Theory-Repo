@@ -4,6 +4,7 @@ public class Shape : MonoBehaviour
 {
     [SerializeField] private string shapeName = "Shape";
 
+    // ENCAPSULATION
     public string ShapeName
     {
         get { return shapeName; }
@@ -21,7 +22,13 @@ public class Shape : MonoBehaviour
         }
     }
 
-    protected virtual void OnMouseDown()
+    private void OnMouseDown()
+    {
+        HandleClick();
+    }
+
+    // ABSTRACTION
+    private void HandleClick()
     {
         DisplayInfo();
         PerformAction();
